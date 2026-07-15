@@ -73,72 +73,67 @@ html,body{font-family:'Noto Sans KR',sans-serif;background:#f5f1eb;color:#1a1a1a
 .menu-item-en{font-size:11px;font-weight:300;color:#888;letter-spacing:1px}
 .menu-addr{padding:24px 40px;font-size:11px;font-weight:300;color:#555;line-height:2}
 
-/* ===== HERO SLIDER ===== */
-.hero-wrap{
-  padding:72px 16px 0;
-  background:#f5f1eb;
+/* ===== HERO (스페셜 풀스크린 슬라이드) ===== */
+.hero{
+  position:relative;
+  height:58vh;min-height:340px;
+  overflow:hidden;
 }
-.hero-slider-outer{
-  position:relative;overflow:hidden;border-radius:20px;
-}
-.hero-slides{
-  display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1);
-}
-.hero-slide{
-  min-width:100%;position:relative;
-  border-radius:20px;overflow:hidden;
-}
-.hero-slide-img{
-  width:100%;aspect-ratio:3/4;object-fit:cover;display:block;
-  background:#2a2a2a;
-}
-.hero-slide-overlay{
+.hero-bg{
   position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(0,0,0,.1) 0%,rgba(0,0,0,.55) 100%);
-  border-radius:20px;
+  background-size:cover;background-position:center;
+  opacity:0;transition:opacity 1.2s ease;
 }
-.hero-slide-top{
-  position:absolute;top:16px;left:16px;right:16px;
+.hero-bg.on{opacity:1}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.1) 0%,rgba(0,0,0,.1) 30%,rgba(0,0,0,.65) 100%);
+}
+.hero-body{
+  position:absolute;inset:0;z-index:5;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 28px 52px;
+}
+.hero-tag{
+  font-size:11px;font-weight:400;color:rgba(255,255,255,.75);
+  letter-spacing:.12em;margin-bottom:10px;
+}
+.hero-title{
+  font-size:28px;font-weight:700;color:#fff;
+  line-height:1.3;letter-spacing:-.02em;margin-bottom:8px;
+}
+.hero-desc{
+  font-size:13px;font-weight:300;color:rgba(255,255,255,.85);
+  line-height:1.6;margin-bottom:22px;
+}
+.hero-bottom{
   display:flex;align-items:center;justify-content:space-between;
 }
-.hero-slide-label{
-  font-size:11px;font-weight:500;color:#fff;
-  background:rgba(255,255,255,.15);backdrop-filter:blur(4px);
-  padding:4px 10px;border-radius:20px;letter-spacing:.06em;
+.hero-dots{display:flex;gap:8px;align-items:center}
+.hero-dot{
+  height:2px;background:rgba(255,255,255,.35);
+  transition:all .4s;width:20px;
 }
-.hero-slide-arrow{
-  width:32px;height:32px;border-radius:50%;
-  background:rgba(255,255,255,.2);backdrop-filter:blur(4px);
-  display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;
+.hero-dot.on{background:#fff;width:32px}
+.hero-cnt{
+  font-size:12px;font-weight:300;color:rgba(255,255,255,.7);
 }
-.hero-slide-arrow svg{width:14px;height:14px;stroke:#fff;stroke-width:2;fill:none}
-.hero-slide-body{
-  position:absolute;bottom:0;left:0;right:0;padding:20px;
+/* 혜택 배너 */
+.benefit-bar{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 20px;
+  background:#f8f6f2;
+  border-bottom:1px solid #ede9e2;
+  cursor:pointer;
 }
-.hero-badge{
-  display:inline-block;background:#b4915a;color:#fff;
-  font-size:10px;font-weight:500;padding:3px 8px;border-radius:4px;margin-bottom:8px;
+.benefit-badge{
+  background:#1a1a1a;color:#fff;
+  font-size:11px;font-weight:600;
+  padding:3px 8px;letter-spacing:.03em;flex-shrink:0;
 }
-.hero-title{font-size:26px;font-weight:700;color:#fff;line-height:1.25;margin-bottom:6px}
-.hero-desc{font-size:12px;font-weight:300;color:rgba(255,255,255,.85);margin-bottom:14px;line-height:1.5}
-.hero-btn{
-  display:inline-flex;align-items:center;gap:6px;
-  background:rgba(255,255,255,.15);backdrop-filter:blur(4px);
-  border:1px solid rgba(255,255,255,.4);color:#fff;
-  font-size:12px;font-weight:400;padding:8px 16px;border-radius:20px;cursor:pointer;
-  font-family:'Noto Sans KR',sans-serif;
-}
-.hero-btn svg{width:12px;height:12px;stroke:#fff;stroke-width:2;fill:none}
-.hero-prev-peek{
-  position:absolute;top:0;left:-8px;bottom:0;width:24px;
-  background:rgba(0,0,0,.25);backdrop-filter:blur(2px);
-  border-radius:20px 0 0 20px;
-  display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;
-}
-.hero-prev-peek svg{width:12px;height:12px;stroke:#fff;stroke-width:2.5;fill:none}
-.hero-dots{display:flex;justify-content:center;gap:6px;margin-top:12px}
-.hero-dot{width:6px;height:6px;border-radius:50%;background:#ccc;transition:all .3s;cursor:pointer}
-.hero-dot.active{width:18px;border-radius:3px;background:#1a1a1a}
+.benefit-text{font-size:13px;font-weight:400;color:#1a1a1a;flex:1}
+.benefit-arr{margin-left:auto;flex-shrink:0}
+.benefit-arr svg{width:14px;height:14px;stroke:#aaa;fill:none;stroke-width:1.5}
 
 /* ===== SECTION HEADER ===== */
 .sec-hd{display:flex;align-items:flex-end;justify-content:space-between;padding:32px 20px 16px}
@@ -462,204 +457,44 @@ html,body{font-family:'Noto Sans KR',sans-serif;background:#f5f1eb;color:#1a1a1a
   <div class="menu-addr">경상북도 예천군 풍양면 덕암로 1123-33<br>Tel. 010-9429-7070</div>
 </div>
 
-<!-- HERO SLIDER (객실 12개) -->
-<div class="hero-wrap">
-  <div class="hero-slider-outer" id="heroOuter">
-    <div class="hero-slides" id="heroSlides">
+<!-- HERO (스페셜 6개 풀스크린 슬라이드) -->
+<section class="hero" id="hero">
+  <!-- 슬라이드 1: 온수수영장 -->
+  <div class="hero-bg on" style="background-image:url('pool.webp')"></div>
+  <!-- 슬라이드 2: 라운지봄 -->
+  <div class="hero-bg" style="background-image:url('http://gonylab11.speedgabia.com/thebgyeong/special/5/1.jpg')"></div>
+  <!-- 슬라이드 3: 아프레미디 -->
+  <div class="hero-bg" style="background-image:url('aphremidi.webp')"></div>
+  <!-- 슬라이드 4: 테라스돔 -->
+  <div class="hero-bg" style="background-image:url('http://gonylab11.speedgabia.com/thebgyeong/special/2/1.jpg')"></div>
+  <!-- 슬라이드 5: 징검다리 -->
+  <div class="hero-bg" style="background-image:url('http://gonylab11.speedgabia.com/thebgyeong/special/4/1.jpg')"></div>
+  <!-- 슬라이드 6: 불멍 -->
+  <div class="hero-bg" style="background-image:url('http://gonylab11.speedgabia.com/thebgyeong/special/3/1.jpg')"></div>
 
-      <!-- 풀빌라 -->
-      <div class="hero-slide">
-        <img class="hero-slide-img" src="http://gonylab11.speedgabia.com/thebgyeong/room/1/1.jpg" alt="풀빌라 숲" loading="eager"/>
-        <div class="hero-slide-overlay"></div>
-        <div class="hero-slide-top">
-          <span class="hero-slide-label">PRIVATE POOL VILLA</span>
-          <button class="hero-slide-arrow" onclick="heroNext()"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-        <div class="hero-slide-body">
-          <div class="hero-badge">풀빌라</div>
-          <div class="hero-title">풀빌라 숲</div>
-          <div class="hero-desc">낙동강 조망과 개폐식 온수풀을 갖춘<br>그랜드 풀빌라</div>
-          <button class="hero-btn" onclick="openRoomBS('r_sul')">자세히 보기 <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
+  <div class="hero-body">
+    <div class="hero-tag" id="heroTag">POOL · YECHEON</div>
+    <div class="hero-title" id="heroTitle">자연이 머무는<br>깊은 쉼의 공간</div>
+    <div class="hero-desc" id="heroDesc">전 객실 온수풀 · 독채형 프라이빗 빌라<br>예천의 비경을 품은 완전한 휴식</div>
+    <div class="hero-bottom">
+      <div class="hero-dots" id="heroDots">
+        <div class="hero-dot on"></div>
+        <div class="hero-dot"></div>
+        <div class="hero-dot"></div>
+        <div class="hero-dot"></div>
+        <div class="hero-dot"></div>
+        <div class="hero-dot"></div>
       </div>
-      <div class="hero-slide">
-        <img class="hero-slide-img" src="http://gonylab11.speedgabia.com/thebgyeong/room/2/1.jpg" alt="풀빌라 아침" loading="lazy"/>
-        <div class="hero-slide-overlay"></div>
-        <div class="hero-slide-top">
-          <span class="hero-slide-label">PRIVATE POOL VILLA</span>
-          <button class="hero-slide-arrow" onclick="heroNext()"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-        <div class="hero-slide-body">
-          <div class="hero-badge">풀빌라</div>
-          <div class="hero-title">풀빌라 아침</div>
-          <div class="hero-desc">이른 아침 안개와 함께 깨어나는<br>조용한 프라이빗 공간</div>
-          <button class="hero-btn" onclick="openRoomBS('r_achim')">자세히 보기 <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-      </div>
-      <div class="hero-slide">
-        <img class="hero-slide-img" src="http://gonylab11.speedgabia.com/thebgyeong/room/3/1.jpg" alt="풀빌라 달" loading="lazy"/>
-        <div class="hero-slide-overlay"></div>
-        <div class="hero-slide-top">
-          <span class="hero-slide-label">PRIVATE POOL VILLA</span>
-          <button class="hero-slide-arrow" onclick="heroNext()"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-        <div class="hero-slide-body">
-          <div class="hero-badge">풀빌라</div>
-          <div class="hero-title">풀빌라 달</div>
-          <div class="hero-desc">달빛 아래 온수풀에서 즐기는<br>낭만적인 나이트 스테이</div>
-          <button class="hero-btn" onclick="openRoomBS('r_dal')">자세히 보기 <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-      </div>
-      <div class="hero-slide">
-        <img class="hero-slide-img" src="http://gonylab11.speedgabia.com/thebgyeong/room/4/1.jpg" alt="풀빌라 하늘" loading="lazy"/>
-        <div class="hero-slide-overlay"></div>
-        <div class="hero-slide-top">
-          <span class="hero-slide-label">PRIVATE POOL VILLA</span>
-          <button class="hero-slide-arrow" onclick="heroNext()"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-        <div class="hero-slide-body">
-          <div class="hero-badge">풀빌라</div>
-          <div class="hero-title">풀빌라 하늘</div>
-          <div class="hero-desc">낙동강과 하늘이 한눈에 담기는<br>파노라마 온수풀 풀빌라</div>
-          <button class="hero-btn" onclick="openRoomBS('r_haneul')">자세히 보기 <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-      </div>
-      <div class="hero-slide">
-        <img class="hero-slide-img" src="http://gonylab11.speedgabia.com/thebgyeong/room/5/1.jpg" alt="풀빌라 별" loading="lazy"/>
-        <div class="hero-slide-overlay"></div>
-        <div class="hero-slide-top">
-          <span class="hero-slide-label">PRIVATE POOL VILLA</span>
-          <button class="hero-slide-arrow" onclick="heroNext()"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-        <div class="hero-slide-body">
-          <div class="hero-badge">풀빌라</div>
-          <div class="hero-title">풀빌라 별</div>
-          <div class="hero-desc">별이 수놓은 밤하늘 아래<br>단독 온수풀과 프라이빗 테라스</div>
-          <button class="hero-btn" onclick="openRoomBS('r_byul')">자세히 보기 <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-      </div>
-
-      <!-- 스파빌라 -->
-      <div class="hero-slide">
-        <img class="hero-slide-img" src="http://gonylab11.speedgabia.com/thebgyeong/room/6/1.jpg" alt="스파빌라 노을" loading="lazy"/>
-        <div class="hero-slide-overlay"></div>
-        <div class="hero-slide-top">
-          <span class="hero-slide-label">SPA VILLA</span>
-          <button class="hero-slide-arrow" onclick="heroNext()"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-        <div class="hero-slide-body">
-          <div class="hero-badge">스파빌라</div>
-          <div class="hero-title">스파빌라 노을</div>
-          <div class="hero-desc">황금빛 노을이 물드는 시간,<br>스파와 함께하는 완전한 휴식</div>
-          <button class="hero-btn" onclick="openRoomBS('r_noeul')">자세히 보기 <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-      </div>
-      <div class="hero-slide">
-        <img class="hero-slide-img" src="http://gonylab11.speedgabia.com/thebgyeong/room/7/1.jpg" alt="스파빌라 이슬" loading="lazy"/>
-        <div class="hero-slide-overlay"></div>
-        <div class="hero-slide-top">
-          <span class="hero-slide-label">SPA VILLA</span>
-          <button class="hero-slide-arrow" onclick="heroNext()"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-        <div class="hero-slide-body">
-          <div class="hero-badge">스파빌라</div>
-          <div class="hero-title">스파빌라 이슬</div>
-          <div class="hero-desc">이슬처럼 신선한 아침<br>스파와 함께하는 완전한 휴식</div>
-          <button class="hero-btn" onclick="openRoomBS('r_isul')">자세히 보기 <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-      </div>
-      <div class="hero-slide">
-        <img class="hero-slide-img" src="http://gonylab11.speedgabia.com/thebgyeong/room/8/1.jpg" alt="스파빌라 풀잎" loading="lazy"/>
-        <div class="hero-slide-overlay"></div>
-        <div class="hero-slide-top">
-          <span class="hero-slide-label">SPA VILLA</span>
-          <button class="hero-slide-arrow" onclick="heroNext()"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-        <div class="hero-slide-body">
-          <div class="hero-badge">스파빌라</div>
-          <div class="hero-title">스파빌라 풀잎</div>
-          <div class="hero-desc">신선한 풀잎 빛 속에 숨은<br>조용한 스파 프라이빗 빌라</div>
-          <button class="hero-btn" onclick="openRoomBS('r_pulip')">자세히 보기 <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-      </div>
-
-      <!-- 프라이빗빌라 -->
-      <div class="hero-slide">
-        <img class="hero-slide-img" src="http://gonylab11.speedgabia.com/thebgyeong/room/9/1.jpg" alt="프라이빗빌라 구름" loading="lazy"/>
-        <div class="hero-slide-overlay"></div>
-        <div class="hero-slide-top">
-          <span class="hero-slide-label">PRIVATE VILLA</span>
-          <button class="hero-slide-arrow" onclick="heroNext()"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-        <div class="hero-slide-body">
-          <div class="hero-badge">프라이빗빌라</div>
-          <div class="hero-title">프라이빗빌라 구름</div>
-          <div class="hero-desc">구름 위에 떠 있는 듯한<br>최고층 프라이빗 빌라</div>
-          <button class="hero-btn" onclick="openRoomBS('r_gureum')">자세히 보기 <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-      </div>
-      <div class="hero-slide">
-        <img class="hero-slide-img" src="http://gonylab11.speedgabia.com/thebgyeong/room/10/1.jpg" alt="프라이빗빌라 바람" loading="lazy"/>
-        <div class="hero-slide-overlay"></div>
-        <div class="hero-slide-top">
-          <span class="hero-slide-label">PRIVATE VILLA</span>
-          <button class="hero-slide-arrow" onclick="heroNext()"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-        <div class="hero-slide-body">
-          <div class="hero-badge">프라이빗빌라</div>
-          <div class="hero-title">프라이빗빌라 바람</div>
-          <div class="hero-desc">신선한 바람이 누리는<br>단독 프라이빗 빌라</div>
-          <button class="hero-btn" onclick="openRoomBS('r_baram')">자세히 보기 <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-      </div>
-      <div class="hero-slide">
-        <img class="hero-slide-img" src="http://gonylab11.speedgabia.com/thebgyeong/room/11/1.jpg" alt="프라이빗빌라 강" loading="lazy"/>
-        <div class="hero-slide-overlay"></div>
-        <div class="hero-slide-top">
-          <span class="hero-slide-label">PRIVATE VILLA</span>
-          <button class="hero-slide-arrow" onclick="heroNext()"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-        <div class="hero-slide-body">
-          <div class="hero-badge">프라이빗빌라</div>
-          <div class="hero-title">프라이빗빌라 강</div>
-          <div class="hero-desc">낙동강을 품은 수변 프라이빗<br>완전한 독채 휴식 공간</div>
-          <button class="hero-btn" onclick="openRoomBS('r_gang')">자세히 보기 <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-      </div>
-      <div class="hero-slide">
-        <img class="hero-slide-img" src="http://gonylab11.speedgabia.com/thebgyeong/room/12/1.jpg" alt="프라이빗빌라 초원" loading="lazy"/>
-        <div class="hero-slide-overlay"></div>
-        <div class="hero-slide-top">
-          <span class="hero-slide-label">PRIVATE VILLA</span>
-          <button class="hero-slide-arrow" onclick="heroNext()"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-        <div class="hero-slide-body">
-          <div class="hero-badge">프라이빗빌라</div>
-          <div class="hero-title">프라이빗빌라 초원</div>
-          <div class="hero-desc">넓게 펼쳐진 초원과 자연이 어우러진<br>가족을 위한 프라이빗 빌라</div>
-          <button class="hero-btn" onclick="openRoomBS('r_chowon')">자세히 보기 <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
-        </div>
-      </div>
-
-    </div>
-    <div class="hero-prev-peek" id="heroPrevPeek" onclick="heroPrev()" style="display:none">
-      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      <div class="hero-cnt" id="heroCnt">01 / 06</div>
     </div>
   </div>
-  <div class="hero-dots" id="heroDots">
-    <div class="hero-dot active" onclick="heroGo(0)"></div>
-    <div class="hero-dot" onclick="heroGo(1)"></div>
-    <div class="hero-dot" onclick="heroGo(2)"></div>
-    <div class="hero-dot" onclick="heroGo(3)"></div>
-    <div class="hero-dot" onclick="heroGo(4)"></div>
-    <div class="hero-dot" onclick="heroGo(5)"></div>
-    <div class="hero-dot" onclick="heroGo(6)"></div>
-    <div class="hero-dot" onclick="heroGo(7)"></div>
-    <div class="hero-dot" onclick="heroGo(8)"></div>
-    <div class="hero-dot" onclick="heroGo(9)"></div>
-    <div class="hero-dot" onclick="heroGo(10)"></div>
-    <div class="hero-dot" onclick="heroGo(11)"></div>
-  </div>
+</section>
+
+<!-- 혜택 배너 -->
+<div class="benefit-bar">
+  <span class="benefit-badge">혜택</span>
+  <span class="benefit-text">공식 예약 시 최대 10% 할인 + 웰콤 기프트 제공</span>
+  <div class="benefit-arr"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
 </div>
 
 <!-- SPECIAL SECTION -->
@@ -1095,29 +930,28 @@ window.addEventListener('scroll',()=>{
 function openMenu(){document.getElementById('menuOverlay').classList.add('open')}
 function closeMenu(){document.getElementById('menuOverlay').classList.remove('open')}
 
-// Hero slider
-let heroIdx=0;
-const heroTotal=12;
-function heroRender(){
-  document.getElementById('heroSlides').style.transform=`translateX(-${heroIdx*100}%)`;
-  document.querySelectorAll('.hero-dot').forEach((d,i)=>d.classList.toggle('active',i===heroIdx));
-  document.getElementById('heroPrevPeek').style.display=heroIdx>0?'flex':'none';
+// Hero special slider (6개 스페셜 풀스크린 자동 슬라이드)
+const heroData=[
+  {tag:'POOL · YECHEON',title:'자연이 머무는<br>깊은 쉼의 공간',desc:'전 객실 온수풀 · 독채형 프라이빗 빌라<br>예천의 비경을 품은 완전한 휴식'},
+  {tag:'LOUNGE · YECHEON',title:'라운지봄<br>따뜻한 쉼의 공간',desc:'입실부터 늦은 밤까지<br>언제나 편안한 공용 라운지'},
+  {tag:'OUTDOOR · YECHEON',title:'아프레미디<br>오후의 여유',desc:'전망대 · 피크닉존 · 스파에어리어<br>예천의 풍경을 담는 야외 공간'},
+  {tag:'TERRACE · YECHEON',title:'테라스돔<br>사계절 다른 매력',desc:'오렌저리 · 별가라<br>유리 온실 속 감성적인 휴식'},
+  {tag:'NATURE · YECHEON',title:'징검다리<br>자연 속 산책',desc:'계절마다 다른 풍경<br>더 비경만의 자연 산책로'},
+  {tag:'OUTDOOR · YECHEON',title:'불멍<br>원초적인 힐링',desc:'화로대 앞 자연의 불꽃<br>하루의 피로를 내려놓는 시간'}
+];
+let hIdx=0;
+const hBgs=document.querySelectorAll('.hero-bg');
+const hDots2=document.querySelectorAll('#heroDots .hero-dot');
+function heroRender2(){
+  hBgs.forEach((b,i)=>b.classList.toggle('on',i===hIdx));
+  hDots2.forEach((d,i)=>d.classList.toggle('on',i===hIdx));
+  const d=heroData[hIdx];
+  document.getElementById('heroTag').textContent=d.tag;
+  document.getElementById('heroTitle').innerHTML=d.title;
+  document.getElementById('heroDesc').innerHTML=d.desc;
+  document.getElementById('heroCnt').textContent=String(hIdx+1).padStart(2,'0')+' / 06';
 }
-function heroNext(){heroIdx=(heroIdx+1)%heroTotal;heroRender()}
-function heroPrev(){heroIdx=(heroIdx-1+heroTotal)%heroTotal;heroRender()}
-function heroGo(i){heroIdx=i;heroRender()}
-setInterval(heroNext,4000);
-
-// Hero touch swipe
-(function(){
-  const el=document.getElementById('heroOuter');
-  let sx=0;
-  el.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
-  el.addEventListener('touchend',e=>{
-    const dx=e.changedTouches[0].clientX-sx;
-    if(Math.abs(dx)>40){if(dx<0)heroNext();else heroPrev();}
-  },{passive:true});
-})();
+setInterval(()=>{hIdx=(hIdx+1)%6;heroRender2();},4500);
 
 // Special slider
 let spPage=0;
