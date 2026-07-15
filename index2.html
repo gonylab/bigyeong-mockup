@@ -143,7 +143,7 @@ html,body{font-family:'Noto Sans KR',sans-serif;background:#f5f1eb;color:#1a1a1a
 .sec-hd-right{font-size:11px;font-weight:400;color:#999;white-space:nowrap}
 
 /* ===== SPECIAL 2-CARD GRID ===== */
-.sp-grid-outer{padding:0 16px;overflow:hidden}
+.sp-grid-outer{padding:0 16px;overflow:hidden;background:#f5f1eb}
 .sp-grid-slides{
   display:flex;
   gap:8px;
@@ -217,21 +217,8 @@ html,body{font-family:'Noto Sans KR',sans-serif;background:#f5f1eb;color:#1a1a1a
 .room-type-panel{display:none}
 .room-type-panel.active{display:block}
 
-/* 타입 로고 헤더 */
-.room-type-header{
-  display:flex;align-items:center;gap:12px;
-  padding:16px 20px 14px;
-  border-bottom:1px solid rgba(0,0,0,.06);
-  background:#ede9e1;
-  border-radius:10px;
-  margin:12px 16px 0;
-}
-.room-type-header-logo{
-  height:40px;object-fit:contain;
-}
-.room-type-header-info{}
-.room-type-header-en{font-size:9px;font-weight:300;color:#b4915a;letter-spacing:2px;margin-bottom:2px}
-.room-type-header-desc{font-size:11px;font-weight:300;color:#888;line-height:1.5}
+/* 타입 로고 헤더 제거 */
+.room-type-header{display:none}
 
 /* 객실 카드 슬라이더 */
 .room-slider-wrap{
@@ -619,13 +606,6 @@ html,body{font-family:'Noto Sans KR',sans-serif;background:#f5f1eb;color:#1a1a1a
 
   <!-- 풀빌라 패널 -->
   <div class="room-type-panel active" id="panel-0">
-    <div class="room-type-header">
-      <img class="room-type-header-logo" src="logo_pool_villa.png" alt="PRIVATE POOL VILLA"/>
-      <div class="room-type-header-info">
-        <div class="room-type-header-en">PRIVATE POOL VILLA</div>
-        <div class="room-type-header-desc">전용 개폐식 온수풀 · 5개 객실<br>낙동강 조망과 프라이빗 풀시간</div>
-      </div>
-    </div>
     <div class="room-slider-wrap">
       <div class="room-slider" id="slider-0">
         <div class="room-card" onclick="openRoomBS('r_sul')">
@@ -684,13 +664,6 @@ html,body{font-family:'Noto Sans KR',sans-serif;background:#f5f1eb;color:#1a1a1a
 
   <!-- 스파빌라 패널 -->
   <div class="room-type-panel" id="panel-1">
-    <div class="room-type-header">
-      <img class="room-type-header-logo" src="logo_spa_villa.png" alt="SPA VILLA"/>
-      <div class="room-type-header-info">
-        <div class="room-type-header-en">SPA VILLA</div>
-        <div class="room-type-header-desc">전용 프라이빗 스파 · 3개 객실<br>스파와 온수풀이 함께하는 럭셔리 스테이</div>
-      </div>
-    </div>
     <div class="room-slider-wrap">
       <div class="room-slider" id="slider-1">
         <div class="room-card" onclick="openRoomBS('r_noeul')">
@@ -729,13 +702,6 @@ html,body{font-family:'Noto Sans KR',sans-serif;background:#f5f1eb;color:#1a1a1a
 
   <!-- 프라이빗빌라 패널 -->
   <div class="room-type-panel" id="panel-2">
-    <div class="room-type-header">
-      <img class="room-type-header-logo" src="logo_private_villa.png" alt="PRIVATE VILLA"/>
-      <div class="room-type-header-info">
-        <div class="room-type-header-en">PRIVATE VILLA</div>
-        <div class="room-type-header-desc">독채형 프라이빗 · 4개 객실<br>대가족을 위한 넓은 프라이빗 스테이</div>
-      </div>
-    </div>
     <div class="room-slider-wrap">
       <div class="room-slider" id="slider-2">
         <div class="room-card" onclick="openRoomBS('r_gureum')">
